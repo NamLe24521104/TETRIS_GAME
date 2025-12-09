@@ -1,4 +1,6 @@
 #include <iostream>
+#include <windows.h>
+
 using namespace std;
 
 // --- KHAI BAO BIEN TOAN CUC (TV1 & TV5) ---
@@ -149,7 +151,21 @@ void initBoard(){
 
 
 // --- HAM TIEN ICH (TV2 & TV4) ---
-void gotoxy(int x, int y) { /* TV2 se lam */ }
+
+int x = 4, y = 0, b = 1;
+
+int rotation = 0;
+
+int nextBlock = -1;
+
+void gotoxy(int x, int y) {
+
+    COORD c = {(SHORT)x, (SHORT)y};
+
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+
+}
+
 void draw() { /* TV2 se lam */ }
 void enableRawMode() { /* TV4 se lam */ }
 void input() { /* TV4 se lam */ }
