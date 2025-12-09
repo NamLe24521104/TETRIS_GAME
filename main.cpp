@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <conio.h>
 
 // --- KHAI BAO BIEN TOAN CUC (TV1 & TV5) ---
 // (De trong cho TV5 dien)
