@@ -4,6 +4,14 @@ using namespace std;
 // --- KHAI BAO BIEN TOAN CUC (TV1 & TV5) ---
 // (De trong cho TV5 dien)
 
+
+#define H 20
+
+#define W 15
+
+
+
+char board[H][W] = {};
 // --- HAM TIEN ICH (TV2 & TV4) ---
 void gotoxy(int x, int y) { /* TV2 se lam */ }
 void draw() { /* TV2 se lam */ }
