@@ -2,6 +2,33 @@
 using namespace std;
 #include <conio.h>
 
+
+
+void enableRawMode() {
+
+    HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
+
+    DWORD mode = 0;
+
+    GetConsoleMode(hIn, &mode);
+
+
+
+    // Tắt chế độ line input (bắt buộc phải Enter)
+
+    mode &= ~(ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT);
+
+
+
+    // Tắt quick edit (tránh freeze)
+
+    mode &= ~ENABLE_QUICK_EDIT_MODE;
+
+
+
+    SetConsoleMode(hIn, mode);
+
+}
 // --- KHAI BAO BIEN TOAN CUC (TV1 & TV5) ---
 // (De trong cho TV5 dien)
 
