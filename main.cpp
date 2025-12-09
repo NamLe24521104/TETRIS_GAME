@@ -164,6 +164,63 @@ void logic() { /* TV3 se lam */ }
 // --- MAIN (TV1) ---
 int main() {
     cout << "Du an Tetris Nhom 5 khoi dong...";
+    enableRawMode();
+
+    // Đặt code page để in được char(219)
+
+    system("chcp 437 >nul");
+
+    SetConsoleOutputCP(437);
+
+
+
+    // Ẩn con trỏ
+
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO cursorInfo;
+
+    GetConsoleCursorInfo(hOut, &cursorInfo);
+
+    cursorInfo.bVisible = FALSE;
+
+    SetConsoleCursorInfo(hOut, &cursorInfo);
+
+
+
+    ios_base::sync_with_stdio(false);
+
+    cin.tie(NULL);
+
+
+
+    system("cls");
+
+
+
+    srand((unsigned)time(0));
+
+
+
+    // Khởi tạo game
+
+    initBoard();
+
+    b = rand() % 7;
+
+    nextBlock = rand() % 7;
+
+    rotation = 0;
+
+    x = getRandomX(b);
+
+    y = 0;
+
+
+
+    int fallCounter = 0;
+
+    bool gameOver = false;
     while (!gameOver){
 
         // Xóa khối hiện tại từ board
