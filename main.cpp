@@ -370,7 +370,16 @@ unsigned char ch = _getch();
             fallCounter = 0;
 
         }
+// Vẽ khối hiện tại (tạm thời)
+
+        block2Board();
+
+        draw();
 
 
-    return 0;
-}
+
+        Sleep(30);  // thời gian chờ nhỏ để game mượt hơn
+
+    }
+
+return 0;
