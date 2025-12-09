@@ -164,5 +164,156 @@ void logic() { /* TV3 se lam */ }
 // --- MAIN (TV1) ---
 int main() {
     cout << "Du an Tetris Nhom 5 khoi dong...";
+    while (!gameOver){
+
+        // Xóa khối hiện tại từ board
+
+        boardDelBlock();
+
+
+
+        // Xử lý input không blocking
+
+        if (_kbhit()){
+
+unsigned char ch = _getch();
+
+            char c = tolower(ch);
+
+            if (c == 'a') {
+
+                if (canMove(-1, 0)) x--;
+
+            }
+
+            else if (c == 'd') {
+
+                if (canMove(1, 0)) x++;
+
+            }
+
+            else if (c == 's') {
+
+                if (canMove(0, 1)) y++;
+
+            }
+
+            else if (c == 'w') {
+
+                rotateBlock();
+
+            }
+
+            else if (c == 'q') {
+
+                gameOver = true;
+
+                break;
+
+            }
+
+        }
+
+
+
+        // Logic rơi tự động
+
+        fallCounter++;
+
+        if (fallCounter >= speed / 30) {
+
+            if (canMove(0, 1)) {
+
+                y++;
+
+            }
+
+            else {
+
+                // Khối không thể rơi nữa -> cố định khối vào board
+
+                block2Board();
+
+
+
+                // Xóa dòng đầy
+
+                removeLine();
+
+
+
+                // Kiểm tra game over
+
+                if (isGameOver()) {
+
+                    draw();
+
+                    cout << "\n========== GAME OVER ==========" << endl;
+
+                    cout << "Final Score: " << score << endl;
+
+                    cout << "================================" << endl;
+
+                    cout << "Press any key to exit..." << endl;
+
+                    _getch();
+
+                    gameOver = true;
+
+                    break;
+
+                }
+
+
+
+                // Sinh khối mới
+
+                b = nextBlock;
+
+                nextBlock = rand() % 7;
+
+                rotation = 0;
+
+                x = getRandomX(b);
+
+                y = 0;
+
+
+
+                // Nếu không đặt được khối mới → Game Over
+
+                if (!canMove(0, 0)) {
+
+                    draw();
+
+                    cout << "\n========== GAME OVER ==========" << endl;
+
+                    cout << "Final Score: " << score << endl;
+
+                    cout << "================================" << endl;
+
+                    cout << "Press any key to exit..." << endl;
+
+                    _getch();
+
+                    gameOver = true;
+
+                    break;
+
+                }
+
+
+
+                fallCounter = 0;
+
+                // tiếp tục vòng lặp, khối mới sẽ được vẽ ở cuối
+
+            }
+
+            fallCounter = 0;
+
+        }
+
+
     return 0;
 }
