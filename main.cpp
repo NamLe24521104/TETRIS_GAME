@@ -115,6 +115,39 @@ char blocks[7][4][4][4] = {
 
 
 };
+
+
+void initBoard(){
+
+    for (int i = 0 ; i < H ; i++){
+
+        for (int j = 0 ; j < W ; j++){
+
+            if(i == H-1) {
+
+                if(j==0) board[i][j] = char(200);
+
+                else if(j==W-1) board[i][j] = char(188);
+
+                else board[i][j] = char(205);
+
+            }
+
+           else if ((j == 0) || (j == W-1))
+
+                board[i][j] = char(186);
+
+            else
+
+                board[i][j] = ' ';
+
+        }
+
+    }
+
+}
+
+
 // --- HAM TIEN ICH (TV2 & TV4) ---
 void gotoxy(int x, int y) { /* TV2 se lam */ }
 void draw() { /* TV2 se lam */ }
