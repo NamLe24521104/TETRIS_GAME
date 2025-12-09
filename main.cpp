@@ -11,7 +11,35 @@ void enableRawMode() { /* TV4 se lam */ }
 void input() { /* TV4 se lam */ }
 
 // --- HAM LOGIC GAME (TV3) ---
-bool canMove() { return false; /* TV3 se lam */ }
+
+bool canMove(int dx, int dy){
+
+    for (int i = 0 ; i < 4 ; i++){
+
+        for (int j = 0 ; j < 4 ; j++){
+
+            if (blocks[b][rotation][i][j] != ' '){
+
+                int tx = x + j + dx;
+
+                int ty = y + i + dy;
+
+
+
+                // Kiểm tra biên
+
+                if (tx < 1 || tx >= W-1 || ty >= H-1) return false;
+
+            }
+
+        }
+
+    }
+
+    return true;
+
+}
+
 void logic() { /* TV3 se lam */ }
 
 // --- MAIN (TV1) ---
