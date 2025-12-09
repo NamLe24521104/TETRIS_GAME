@@ -30,6 +30,11 @@ bool canMove(int dx, int dy){
 
                 if (tx < 1 || tx >= W-1 || ty >= H-1) return false;
 
+                if (ty >= 0 && (board[ty][tx] == '#' || board[ty][tx] == BLOCK))
+
+                    return false;
+
+
             }
 
         }
