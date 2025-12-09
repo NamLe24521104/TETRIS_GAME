@@ -39,7 +39,8 @@ void enableRawMode() { /* TV4 se lam */ }
 void input() { /* TV4 se lam */ }
 
 // --- HAM LOGIC GAME (TV3) ---
-
+int score = 0;
+int speed = 200;
 bool canMove(int dx, int dy){
 
     for (int i = 0 ; i < 4 ; i++){
