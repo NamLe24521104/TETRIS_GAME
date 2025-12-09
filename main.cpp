@@ -45,6 +45,61 @@ bool canMove(int dx, int dy){
 
 }
 
+
+void removeLine(){
+
+    for (int i = H - 2; i >= 1; i--){
+
+        bool full = true;
+
+        for (int j = 1; j < W - 1; j++){
+
+            if (board[i][j] != BLOCK) {
+
+                full = false;
+
+                break;
+
+            }
+
+        }
+
+
+
+        if (full) {
+
+            // Xóa dòng và đẩy các dòng phía trên xuống
+
+            for (int k = i; k > 0; k--){
+
+                for (int j = 1; j < W - 1; j++){
+
+                    board[k][j] = board[k - 1][j];
+
+                }
+
+            }
+
+            // Dòng trên cùng (k = 0) nên clear
+
+            for (int j = 1; j < W - 1; j++){
+
+                board[0][j] = ' ';
+
+            }
+
+
+
+            score += 100;
+
+            i++;  // Kiểm tra lại dòng này vì nó vừa thay đổi
+
+        }
+
+    }
+
+}
+
 void logic() { /* TV3 se lam */ }
 
 // --- MAIN (TV1) ---
