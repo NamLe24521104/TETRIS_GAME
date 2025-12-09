@@ -9,9 +9,41 @@ using namespace std;
 
 #define W 15
 
-
+const char BLOCK = char(219);
 
 char board[H][W] = {};
+
+
+char blocks[7][4][4][4] = {
+
+    // 0: I (Line)
+
+    {
+
+        {{' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}},
+
+        {{' ',' ',' ',' '}, {BLOCK,BLOCK,BLOCK,BLOCK}, {' ',' ',' ',' '}, {' ',' ',' ',' '}},
+
+        {{' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}, {' ',BLOCK,' ',' '}},
+
+        {{' ',' ',' ',' '}, {BLOCK,BLOCK,BLOCK,BLOCK}, {' ',' ',' ',' '}, {' ',' ',' ',' '}}
+
+    },
+
+    // 1: O (Square)
+
+    {
+
+        {{' ',' ',' ',' '}, {' ',BLOCK,BLOCK,' '}, {' ',BLOCK,BLOCK,' '}, {' ',' ',' ',' '}},
+
+        {{' ',' ',' ',' '}, {' ',BLOCK,BLOCK,' '}, {' ',BLOCK,BLOCK,' '}, {' ',' ',' ',' '}},
+
+        {{' ',' ',' ',' '}, {' ',BLOCK,BLOCK,' '}, {' ',BLOCK,BLOCK,' '}, {' ',' ',' ',' '}},
+
+        {{' ',' ',' ',' '}, {' ',BLOCK,BLOCK,' '}, {' ',BLOCK,BLOCK,' '}, {' ',' ',' ',' '}}
+
+    },
+}
 // --- HAM TIEN ICH (TV2 & TV4) ---
 void gotoxy(int x, int y) { /* TV2 se lam */ }
 void draw() { /* TV2 se lam */ }
